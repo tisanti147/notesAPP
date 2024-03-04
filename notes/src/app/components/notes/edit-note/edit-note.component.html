@@ -1,0 +1,40 @@
+<div class="all">
+    <section class="section">
+        <fieldset>
+            <legend>Edit Note</legend>
+            <form id="form" (ngSubmit)="editNote()" [formGroup]="form">
+                <div class="field">
+                    <label for="title">Title</label>
+                    <input type="text" id="title" formControlName="title">
+                </div>
+                <div class="field">
+                    <label for="content">Description:</label>
+                    <textarea id="content" cols="30" rows="10" formControlName="content"></textarea>
+                </div>
+
+                <div class="field">
+                    <label for="category">Choose a category:</label>
+                    <select name="category" id="category" formControlName="category">
+                        <option value="">--Please choose an option--</option>
+                        <option value="reminder">Reminder</option>
+                        <option value="list">List</option>
+                        <option value="draft">Draft</option>
+                        <option value="other">Other</option>
+                      </select>
+                </div>
+                
+                <div class="field">
+                    <label for="archived">Archive the note</label>
+                        <input type="checkbox" value="true" id="archived" formControlName="archived">
+                        <span class="slider"></span>
+                </div>
+                <div class="field">
+                    <input type="hidden" id="id" name="id" formControlName="id">
+                </div>
+                <div class="field">
+                    <input type="submit" value="Edit note" id="edit">
+                </div>
+            </form>
+        </fieldset>
+    </section>
+    </div>

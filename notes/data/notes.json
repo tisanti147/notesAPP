@@ -1,0 +1,18 @@
+{
+  "notes": [
+    {
+      "title": "una mas",
+      "content": "mira esta notita jajaj",
+      "category": "draft",
+      "archived": false,
+      "id": 1
+    },
+    {
+      "title": "daft punk",
+      "content": "get lucky",
+      "category": "list",
+      "archived": false,
+      "id": 2
+    }
+  ]
+}

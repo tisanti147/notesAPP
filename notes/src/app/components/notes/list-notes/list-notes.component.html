@@ -1,0 +1,23 @@
+<main class="container">
+    <h1>Notes List</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Content</th>
+                <th>Category</th>
+                <th>Archived</th>
+            </tr>
+        </thead>
+        <tbody id="cita">
+            <tr *ngFor="let item of noteList">
+                <td>{{item.title}}</td>
+                <td>{{item.content}}</td>
+                <td>{{item.category}}</td>
+                <td>{{item.archived}}</td>
+                <td><a class="edit" [routerLink]="['/editar', item.id]">Editar</a></td>
+                <td><a class="erase" href="" (click)="deleteNote(item.id)">Eliminar</a></td>
+            </tr>
+        </tbody>
+    </table>
+</main>
