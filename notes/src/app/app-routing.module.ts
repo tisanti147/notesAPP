@@ -7,7 +7,7 @@ import { EditNotePageComponent } from './pages/edit-note-page/edit-note-page.com
 const routes: Routes = [
   {path: 'home', component: HomePageComponent},
   {path: 'new', component: NewNotePageComponent},
-  {path: 'editar/:id', component: EditNotePageComponent},
+  {path: 'edit/:id', component: EditNotePageComponent},
   {path: '**', redirectTo:'home'}
 ];
 

@@ -11,10 +11,12 @@ import { NotesService } from 'src/app/services/notes.service';
 })
 export class NewNoteComponent implements OnInit{
 
+  categoryOptions: any = [];
+
   form:FormGroup = this.formBuilder.group({
     title:['', [Validators.required]],
     content:['', [Validators.required]],
-    category:['', [Validators.required]],
+    category:[[[]], [Validators.required]],
     archived: false,
     id: 0
   })
@@ -28,8 +30,6 @@ export class NewNoteComponent implements OnInit{
   createNote(){
     if (this.form.invalid) return;
 
-    console.log("ahora aca");
-
     const note: note = {
       title: this.form.controls['title'].value,
       content: this.form.controls['content'].value,
@@ -37,7 +37,6 @@ export class NewNoteComponent implements OnInit{
       archived: this.form.controls['archived'].value,
       id: this.form.controls['id'].value
     }
-    console.log("estoy aca");
     this.NotesService.postNote(note).subscribe({
       next: (n) =>{
         alert(`Note ${n.title} created`)

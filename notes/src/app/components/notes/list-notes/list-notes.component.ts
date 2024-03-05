@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { map } from 'rxjs';
 import { note } from 'src/app/interfaces/note';
 import { NotesService } from 'src/app/services/notes.service';
 
@@ -8,13 +9,17 @@ import { NotesService } from 'src/app/services/notes.service';
   styleUrls: ['./list-notes.component.css']
 })
 export class ListNotesComponent implements OnInit{
+  showArchived: boolean | undefined;
 
   constructor(private notesService: NotesService){}
 
   noteList: note[] | undefined = [];
 
+  categoryList: any = [];
+
   ngOnInit(): void {
     this.showNotes()
+    //this.toggleFilter()
   }
 
   showNotes(){
@@ -24,6 +29,22 @@ export class ListNotesComponent implements OnInit{
           this.noteList = n;
         },
         error: (err) =>{
+          console.log(err);
+        }
+      }
+    )
+  }
+
+  toggleFilter(){
+    this.showArchived = !this.showArchived;
+    this.notesService.getNotes().pipe(
+      map(notes => this.showArchived ? notes.filter(note => note.archived) : notes.filter(note => !note.archived))
+    ).subscribe(
+      {
+        next: (filteredNotes) => {
+          this.noteList = filteredNotes;
+        },
+        error: (err) => {
           console.log(err);
         }
       }

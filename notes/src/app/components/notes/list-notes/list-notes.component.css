@@ -1,0 +1,43 @@
+/* list-notes.component.css */
+
+/* Style the table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+  }
+  
+  th, td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  th {
+    background-color: #f2f2f2;
+  }
+  
+  /* Style the multi-select dropdown */
+  select[multiple] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    height: 100px;
+    margin: 5px 0;
+  }
+  
+  /* Style the edit and delete links */
+  a.edit, a.erase, button{
+    text-decoration: none;
+    padding: 5px 10px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    color: #333;
+  }
+  
+  a.edit:hover, a.erase:hover, button:hover{
+    background-color: #e2e2e2;
+  }

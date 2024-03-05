@@ -2,17 +2,35 @@
   "notes": [
     {
       "title": "una mas",
-      "content": "mira esta notita jajaj",
-      "category": "draft",
+      "content": "mira esta notita",
+      "category": "list",
       "archived": false,
       "id": 1
     },
     {
       "title": "daft punk",
       "content": "get lucky",
-      "category": "list",
+      "category": "reminder",
       "archived": false,
       "id": 2
+    },
+    {
+      "title": "saad",
+      "content": "assas",
+      "category": [
+        "list"
+      ],
+      "archived": false,
+      "id": 3
+    },
+    {
+      "title": "nueva",
+      "content": "arreglo",
+      "category": [
+        "draft"
+      ],
+      "archived": true,
+      "id": 4
     }
   ]
 }
