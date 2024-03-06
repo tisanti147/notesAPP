@@ -16,7 +16,7 @@ export class NewNoteComponent implements OnInit{
   form:FormGroup = this.formBuilder.group({
     title:['', [Validators.required]],
     content:['', [Validators.required]],
-    category:[[[]], [Validators.required]],
+    category:['', [Validators.required]],
     archived: false,
     id: 0
   })

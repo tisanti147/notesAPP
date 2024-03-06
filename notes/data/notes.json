@@ -1,13 +1,6 @@
 {
   "notes": [
     {
-      "title": "una mas",
-      "content": "mira esta notita",
-      "category": "list",
-      "archived": false,
-      "id": 1
-    },
-    {
       "title": "daft punk",
       "content": "get lucky",
       "category": "reminder",
@@ -15,11 +8,16 @@
       "id": 2
     },
     {
-      "title": "nueva",
-      "content": "arreglo",
-      "category": [
-        "draft"
-      ],
+      "title": "gorillaz",
+      "content": "tomorrow comes today",
+      "category": "draft",
+      "archived": false,
+      "id": 3
+    },
+    {
+      "title": "tame impala",
+      "content": "borderline",
+      "category": "reminder",
       "archived": true,
       "id": 4
     }
