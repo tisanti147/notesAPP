@@ -8,27 +8,28 @@ import { Observable } from 'rxjs';
 })
 export class NotesService {
 
-  url:string = 'http://localhost:4000/notes'
+  api:string = 'http://localhost:3000/notes'
 
   constructor(private http: HttpClient) { }
 
   getNotes(): Observable<note[]>{
-    return this.http.get<note[]>(this.url)
+    return this.http.get<note[]>(this.api + '/getNotes')
   }
 
   postNote(note: note): Observable<note>{
-    return this.http.post<note>(this.url, note, {headers: {'Content-type': 'application/json'}})
+    return this.http.post<note>(this.api + '/postNote', note, {headers: {'Content-type': 'application/json'}})
   }
 
-  deleteNote(id: number){
-    return this.http.delete(`${this.url}/${id}`)
+  deleteNote(id: any){
+    console.log(id);
+    return this.http.delete(`${this.api}/deleteNote/${id}`)
   }
 
-  getNote(id: number): Observable<note>{
-    return this.http.get<note>(`${this.url}/${id}`)
+  getNote(id: string): Observable<note>{
+    return this.http.get<note>(`${this.api}/getNote/${id}`)
   }
 
-  putNote(note: note): Observable<note>{
-    return this.http.put<note>(`${this.url}/${note.id}`, note, {headers: {'Content-type': 'application/json'}})
+  putNote(note: note, id: string): Observable<note>{
+    return this.http.patch<note>(`${this.api}/putNote/${id}`, note, {headers: {'Content-type': 'application/json'}})
   }
 }

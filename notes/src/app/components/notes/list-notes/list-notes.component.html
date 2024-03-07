@@ -17,8 +17,8 @@
                 <td>{{item?.content}}</td>
                 <td>{{item?.category}}</td>
                 <td>{{item?.archived ? 'Archived' : 'Active'}}</td>
-                <td><a class="edit" [routerLink]="['/edit', item.id]">Edit</a></td>
-                <td><a class="erase" href="" (click)="deleteNote(item.id)">Delete</a></td>
+                <td><a class="edit" [routerLink]="['/edit', item._id]">Edit</a></td>
+                <td><a class="erase" href="" (click)="deleteNote(item._id)">Delete</a></td>
             </tr>
         </tbody>
     </table>

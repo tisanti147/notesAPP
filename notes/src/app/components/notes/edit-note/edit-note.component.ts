@@ -13,12 +13,14 @@ export class EditNoteComponent implements OnInit{
 
   note:note | undefined;
 
+  //id: string = this.route.snapshot.params['id'];
+
   form:FormGroup = this.formBuilder.group({
+    _id: ['', [Validators.required]],
     title:['', [Validators.required]],
     content:['', [Validators.required]],
     category:['', [Validators.required]],
     archived:['', [Validators.required]],
-    id: 0
   })
 
   constructor(private formBuilder: FormBuilder, private notesService: NotesService, private route: ActivatedRoute, private router: Router){}
@@ -29,18 +31,18 @@ export class EditNoteComponent implements OnInit{
 
   initForm(){
     this.route.params.subscribe (async param=>{
-      const id = +param['id']
-      if (!isNaN(id)){
+      const id = param['id']
+      if (id){
         this.notesService.getNote(id).subscribe(
           {
             next: (n)=>{
               if(n){
                 this.form = this.formBuilder.group({
+                _id: [id],
                 title: [n.title],
                 content: [n.content],
                 category: [n.category],
                 archived: [n.archived],
-                id: [n.id]
                 })
               }
             },
@@ -61,9 +63,8 @@ export class EditNoteComponent implements OnInit{
       content: this.form.controls['content'].value,
       category: this.form.controls['category'].value,
       archived: this.form.controls['archived'].value,
-      id: this.form.controls['id'].value
     }
-    this.notesService.putNote(note).subscribe(
+    this.notesService.putNote(note, this.form.controls['_id'].value).subscribe(
       {
         next: () =>{
           this.router.navigate(['/editar'])

@@ -51,7 +51,7 @@ export class ListNotesComponent implements OnInit{
     )
   }
 
-  deleteNote(id:number){
+  deleteNote(id:any){
     const ok = confirm(`Do you wish to delete the selected note?`)
     if(!ok) return;
     this.notesService.deleteNote(id).subscribe(

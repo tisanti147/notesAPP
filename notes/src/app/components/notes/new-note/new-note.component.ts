@@ -35,7 +35,6 @@ export class NewNoteComponent implements OnInit{
       content: this.form.controls['content'].value,
       category: this.form.controls['category'].value,
       archived: this.form.controls['archived'].value,
-      id: this.form.controls['id'].value
     }
     this.NotesService.postNote(note).subscribe({
       next: (n) =>{
